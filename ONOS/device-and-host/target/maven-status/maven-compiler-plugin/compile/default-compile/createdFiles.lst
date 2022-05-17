@@ -1,0 +1,8 @@
+com/synx/app1/AppWebResource.class
+com/synx/app1/AppWebApplication.class
+com/synx/app1/AppComponent$InternalDeviceListener.class
+com/synx/app1/AppComponent$InternalHostListener.class
+com/synx/app1/ApiDocRegistrator.class
+com/synx/app1/AppComponent.class
+com/synx/app1/DeviceAndHostService.class
+com/synx/app1/AppCommand.class

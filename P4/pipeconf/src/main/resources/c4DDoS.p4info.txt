@@ -1,0 +1,821 @@
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 33613387
+    name: "ingress.ipv4_fib"
+    alias: "ipv4_fib"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.dst_addr"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 16812834
+  }
+  action_refs {
+    id: 16832181
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33608916
+    name: "ingress.ipv4_dpi_fib"
+    alias: "ipv4_dpi_fib"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.dst_addr"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 16812834
+  }
+  action_refs {
+    id: 16832181
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33593531
+    name: "ingress.src_entropy_term"
+    alias: "src_entropy_term"
+  }
+  match_fields {
+    id: 1
+    name: "meta.ip_count"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 16790550
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33595319
+    name: "ingress.dst_entropy_term"
+    alias: "dst_entropy_term"
+  }
+  match_fields {
+    id: 1
+    name: "meta.ip_count"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 16790550
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 16832181
+    name: "ingress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 16812834
+    name: "ingress.forward"
+    alias: "forward"
+  }
+  params {
+    id: 1
+    name: "egress_port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 16790550
+    name: "ingress.get_entropy_term"
+    alias: "get_entropy_term"
+  }
+  params {
+    id: 1
+    name: "entropy_term"
+    bitwidth: 32
+  }
+}
+actions {
+  preamble {
+    id: 16789710
+    name: "ingress.cs_hash"
+    alias: "cs_hash"
+  }
+}
+actions {
+  preamble {
+    id: 16812286
+    name: "ingress.cs_ghash"
+    alias: "cs_ghash"
+  }
+}
+actions {
+  preamble {
+    id: 16831343
+    name: "ingress.median"
+    alias: "median"
+  }
+}
+registers {
+  preamble {
+    id: 369121215
+    name: "ingress.log2_m"
+    alias: "log2_m"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 5
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369113548
+    name: "ingress.training_len"
+    alias: "training_len"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369143604
+    name: "ingress.ow_counter"
+    alias: "ow_counter"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369143634
+    name: "ingress.pkt_counter"
+    alias: "pkt_counter"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369129331
+    name: "ingress.mitigation_t"
+    alias: "mitigation_t"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369155466
+    name: "ingress.cs_src_curr_1"
+    alias: "cs_src_curr_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369138501
+    name: "ingress.cs_src_curr_2"
+    alias: "cs_src_curr_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369131440
+    name: "ingress.cs_src_curr_3"
+    alias: "cs_src_curr_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369139840
+    name: "ingress.cs_src_curr_4"
+    alias: "cs_src_curr_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369157116
+    name: "ingress.cs_src_curr_1_wid"
+    alias: "cs_src_curr_1_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369132171
+    name: "ingress.cs_src_curr_2_wid"
+    alias: "cs_src_curr_2_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369098876
+    name: "ingress.cs_src_curr_3_wid"
+    alias: "cs_src_curr_3_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369102254
+    name: "ingress.cs_src_curr_4_wid"
+    alias: "cs_src_curr_4_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369128181
+    name: "ingress.cs_dst_curr_1"
+    alias: "cs_dst_curr_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369154006
+    name: "ingress.cs_dst_curr_2"
+    alias: "cs_dst_curr_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369146690
+    name: "ingress.cs_dst_curr_3"
+    alias: "cs_dst_curr_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369105133
+    name: "ingress.cs_dst_curr_4"
+    alias: "cs_dst_curr_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369111551
+    name: "ingress.cs_dst_curr_1_wid"
+    alias: "cs_dst_curr_1_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369103099
+    name: "ingress.cs_dst_curr_2_wid"
+    alias: "cs_dst_curr_2_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369110098
+    name: "ingress.cs_dst_curr_3_wid"
+    alias: "cs_dst_curr_3_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369160348
+    name: "ingress.cs_dst_curr_4_wid"
+    alias: "cs_dst_curr_4_wid"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369152006
+    name: "ingress.cs_src_last_1"
+    alias: "cs_src_last_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369120977
+    name: "ingress.cs_src_last_2"
+    alias: "cs_src_last_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369160748
+    name: "ingress.cs_src_last_3"
+    alias: "cs_src_last_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369143180
+    name: "ingress.cs_src_last_4"
+    alias: "cs_src_last_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369115870
+    name: "ingress.cs_dst_last_1"
+    alias: "cs_dst_last_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369127008
+    name: "ingress.cs_dst_last_2"
+    alias: "cs_dst_last_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369150221
+    name: "ingress.cs_dst_last_3"
+    alias: "cs_dst_last_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369126038
+    name: "ingress.cs_dst_last_4"
+    alias: "cs_dst_last_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369115315
+    name: "ingress.cs_src_safe_1"
+    alias: "cs_src_safe_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369142533
+    name: "ingress.cs_src_safe_2"
+    alias: "cs_src_safe_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369101240
+    name: "ingress.cs_src_safe_3"
+    alias: "cs_src_safe_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369159587
+    name: "ingress.cs_src_safe_4"
+    alias: "cs_src_safe_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369133207
+    name: "ingress.cs_dst_safe_1"
+    alias: "cs_dst_safe_1"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369111610
+    name: "ingress.cs_dst_safe_2"
+    alias: "cs_dst_safe_2"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369153679
+    name: "ingress.cs_dst_safe_3"
+    alias: "cs_dst_safe_3"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369158599
+    name: "ingress.cs_dst_safe_4"
+    alias: "cs_dst_safe_4"
+  }
+  type_spec {
+    bitstring {
+      int {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1280
+}
+registers {
+  preamble {
+    id: 369115606
+    name: "ingress.src_S"
+    alias: "src_S"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369146622
+    name: "ingress.dst_S"
+    alias: "dst_S"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369106906
+    name: "ingress.src_ewma"
+    alias: "src_ewma"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369119249
+    name: "ingress.src_ewmmd"
+    alias: "src_ewmmd"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369161779
+    name: "ingress.dst_ewma"
+    alias: "dst_ewma"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369109831
+    name: "ingress.dst_ewmmd"
+    alias: "dst_ewmmd"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369115113
+    name: "ingress.alpha"
+    alias: "alpha"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369110166
+    name: "ingress.k"
+    alias: "k"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 369123260
+    name: "ingress.dr_state"
+    alias: "dr_state"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 1
+}
+type_info {
+}

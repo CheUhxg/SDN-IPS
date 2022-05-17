@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.synx.packetcounter.AppComponentTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in com.synx.packetcounter.AppComponentTest

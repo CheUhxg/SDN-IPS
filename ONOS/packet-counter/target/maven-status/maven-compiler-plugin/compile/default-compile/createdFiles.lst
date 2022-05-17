@@ -1,0 +1,5 @@
+com/synx/packetcounter/AppWebApplication.class
+com/synx/packetcounter/AppComponent.class
+com/synx/packetcounter/SomeInterface.class
+com/synx/packetcounter/ApiDocRegistrator.class
+com/synx/packetcounter/AppWebResource.class
